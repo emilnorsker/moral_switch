@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hvw3spaw8y1v"]
+[gd_scene load_steps=3 format=3 uid="uid://hvw3spaw8y1v"]
 
 [ext_resource type="Script" path="res://start_screen.gd" id="1_wpuwr"]
+[ext_resource type="AudioStream" uid="uid://cwsdjyd2xhrub" path="res://moral_switch.wav" id="2_8hgkw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,3 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wpuwr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8hgkw")
+autoplay = true
