@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqe2x6pntheoy"]
+
+[ext_resource type="PackedScene" uid="uid://bev6jk80qx0e" path="res://DecisionPopup.tscn" id="1_jmm1j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PopupPanel" parent="." instance=ExtResource("1_jmm1j")]

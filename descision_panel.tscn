@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6u68438bd14"]
+
+[ext_resource type="Texture2D" uid="uid://ck2xjhlruru0f" path="res://characters/john_miller/backstory-john-is-emilys-childhood-friend-and-a-dedicated-social-worker-he-has-devoted-his-life-t-.png" id="1_juqx1"]
+
+[node name="DescisionPanel" type="PopupPanel"]
+mode = 2
+size = Vector2i(1150, 1228)
+visible = true
+transparent = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(643, 511)
+texture = ExtResource("1_juqx1")

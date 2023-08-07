@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://bev6jk80qx0e"]
+
+[ext_resource type="Script" path="res://DescisionPopup.gd" id="1_2yac2"]
+[ext_resource type="Texture2D" uid="uid://bmm3uixivp70e" path="res://characters/five_workers/a--grim-detailed-vector-flat-style-portrait-of-5-hardworking-people-who-look-a-bit-hardworked-tire-993127439.png" id="2_r5n7c"]
+[ext_resource type="Texture2D" uid="uid://ck2xjhlruru0f" path="res://characters/john_miller/backstory-john-is-emilys-childhood-friend-and-a-dedicated-social-worker-he-has-devoted-his-life-t-.png" id="3_jibsv"]
+[ext_resource type="Script" path="res://dont_pull.gd" id="4_gg7l7"]
+[ext_resource type="Texture2D" uid="uid://bn2vshtdiuaty" path="res://assets/caves-rails-tileset-beta-1.0.png" id="5_rc4em"]
+[ext_resource type="Script" path="res://pull_switch.gd" id="6_q1moo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btdw3"]
+atlas = ExtResource("5_rc4em")
+region = Rect2(32, 64, 16, 16)
+
+[node name="PopupPanel" type="PopupPanel"]
+size = Vector2i(1280, 851)
+visible = true
+max_size = Vector2i(1280, 16384)
+content_scale_mode = 1
+content_scale_aspect = 2
+script = ExtResource("1_2yac2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.68
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "The moral switch
+"
+horizontal_alignment = 1
+
+[node name="pull_switch" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.84
+
+[node name="character_image_1" type="TextureRect" parent="VBoxContainer/pull_switch"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(355, 359)
+layout_mode = 2
+texture = ExtResource("2_r5n7c")
+expand_mode = 5
+
+[node name="character_text_pull_switch" type="RichTextLabel" parent="VBoxContainer/pull_switch"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+mouse_filter = 2
+text = "Maria Sanchez:
+Background: Maria is a hardworking single mother of two young children. She works as a housekeeper to support her family and dreams of providing a better life for her kids. Despite facing numerous challenges, Maria remains optimistic and determined to overcome adversity.
+
+Michael Thompson:
+Background: Michael is a skilled and dedicated construction worker. He is known for his craftsmanship and is often sought after for his expertise. Michael is engaged to his high school sweetheart and looks forward to building a secure future for them both.
+
+Linda Chen:
+Background: Linda is an ambitious and talented artist who recently got a job at an art gallery. She is passionate about promoting diverse art and believes in using her platform to advocate for social causes. Linda is loved by her friends and family for her kindness and compassion.
+
+James Anderson:
+Background: James is a jovial and friendly factory worker with a heart of gold. He is always there to lend a helping hand to his colleagues and is well-liked by everyone in the community. James enjoys volunteering at a local animal shelter during his free time.
+
+Sophia Williams:
+Background: Sophia is an aspiring scientist and researcher. She is dedicated to finding sustainable solutions for environmental challenges and has received recognition for her innovative ideas. Sophia is introverted but cares deeply for her colleagues and believes in the power of knowledge to make a difference."
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    
+
+"
+horizontal_alignment = 1
+
+[node name="dont_pull_switch" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="character_image_2" type="TextureRect" parent="VBoxContainer/dont_pull_switch"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(355, 359)
+layout_mode = 2
+texture = ExtResource("3_jibsv")
+expand_mode = 5
+
+[node name="character_text_dont_pull_switch" type="RichTextLabel" parent="VBoxContainer/dont_pull_switch"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+mouse_filter = 2
+text = "John is Emily's childhood friend and a dedicated social worker. He has
+ devoted his life to helping underprivileged communities and is deeply committed to making a positive impact on the world. He shares a close bond with Emily, and they have been through many challenges together."
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="dont_pull" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+text = "Pull switch..
+"
+script = ExtResource("4_gg7l7")
+
+[node name="pull_switch" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+text = "dont pull switch.."
+icon = SubResource("AtlasTexture_btdw3")
+script = ExtResource("6_q1moo")
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/dont_pull" to="." method="_on_button_button_up" binds= [false]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/pull_switch" to="." method="_on_button_button_up" binds= [true]]
